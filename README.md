@@ -8,3 +8,7 @@ Instllation
 4. change the settings.py to point to DB
 5. runserve should open the app on ip/api/
 
+
+TODO:
+. Test cases
+. Docker file to create a build
