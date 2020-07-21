@@ -10,5 +10,5 @@ Instllation
 
 
 TODO:
-. Test cases
-. Docker file to create a build
+1. Test cases
+2. Docker file to create a build
