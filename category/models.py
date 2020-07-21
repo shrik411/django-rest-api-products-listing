@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Category(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200,unique=True, blank=False)
     slug = models.SlugField()
     parent = models.ForeignKey('self', blank=True, null=True , related_name='children', on_delete=models.SET_NULL)
 

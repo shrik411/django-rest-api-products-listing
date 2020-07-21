@@ -3,7 +3,7 @@ from category.models import Category
 
 # Create your models here.
 class Product(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100,unique=True, blank=False)
     description = models.TextField()
     code = models.CharField(max_length=15)
     price = models.FloatField(default=0.00)

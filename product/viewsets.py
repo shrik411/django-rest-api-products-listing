@@ -12,11 +12,19 @@ class ProductViewset(viewsets.ModelViewSet):
 
     @action(methods=['get'], detail=True)
     def category(self, request, pk=None):
-        product_data = Product.objects.filter(pk=pk).first()
+        prod = Product.objects.get(pk=pk)
         
-        if product_data:
-            data = model_to_dict(product_data)
-            return Response(data,
-                            status=status.HTTP_200_OK)
+        if prod:
+            categories = prod.categories.all()
+            
+            json_res = []
+            for category in categories:
+                category_obj = dict(
+                    name = category.name, 
+                )
+                json_res.append(category_obj)
+
+            return Response(json_res,
+                                status=status.HTTP_200_OK)
         else:
             return Response({'status': status.HTTP_404_NOT_FOUND})
